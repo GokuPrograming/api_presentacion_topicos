@@ -21,10 +21,10 @@ router.get('/usuario', async (req, res) => {
 
 router.post('/usuario/registro', async (req, res) => {
     const { nombre, apellido_paterno, apellido_materno,comentario } = req.body;
-
+//console.log()
     try {
         const client = await db.connect();
-        const result = await client.query('INSERT INTO ingeniero (nombre, apellido_paterno, apellido_materno) VALUES($1,$2,$3,$4) RETURNING *', [nombre, apellido_paterno, apellido_materno,comentario]);
+        const result = await client.query('INSERT INTO ingeniero (nombre, apellido_paterno, apellido_materno,comentario) VALUES($1,$2,$3,$4) RETURNING *', [nombre, apellido_paterno, apellido_materno,comentario]);
 
         console.log('Registro exitoso:', result.rows[0]);
 
